@@ -4,3 +4,5 @@ this will be a blog website were i will post what we do on our day to day advent
 i would also like to make a bio for each member.
 
 welcome to the crib 
+
+IM RESTARTING THIS AND USING PYTHON 
