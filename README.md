@@ -5,4 +5,3 @@ i would also like to make a bio for each member.
 
 welcome to the crib 
 
-IM RESTARTING THIS AND USIG PYTHON 
