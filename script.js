@@ -11,7 +11,7 @@ const roommates = [
     },
     {
         name: 'Ammar',
-        bio: 'Bio: Ammar is a music enthusiast and plays guitar.',
+        bio: 'Bio: Ammar is a music enthusiast and wants to learn to play guitar.',
         projects: ['Music Videos', 'Songwriting'],
     },
     {
