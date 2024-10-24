@@ -1,54 +1,69 @@
-class Roommate {
-    constructor(name, bio, projects) {
-        this.name = name;
-        this.bio = bio;
-        this.projects = projects;
+const roommates = [
+    {
+        name: 'Omed',
+        bio: 'Bio: Omed is an avid coder and loves hiking.',
+        projects: ['Web Development', 'Mobile Apps'],
+    },
+    {
+        name: 'Peno',
+        bio: 'Bio: Peno enjoys photography and travel.',
+        projects: ['Travel Blog', 'Photography Portfolio'],
+    },
+    {
+        name: 'Ammar',
+        bio: 'Bio: Ammar is a music enthusiast and plays guitar.',
+        projects: ['Music Videos', 'Songwriting'],
+    },
+    {
+        name: 'Matthew',
+        bio: 'Bio: Matthew loves gaming and technology.',
+        projects: ['Game Development', 'Tech Reviews'],
+    },
+    {
+        name: 'Marvin',
+        bio: 'Bio: Marvin is a fitness guru and healthy living advocate.',
+        projects: ['Fitness Blog', 'Meal Plans'],
     }
-
-    render() {
-        const section = document.createElement('section');
-        section.classList.add('section');
-        section.id = this.name.toLowerCase();
-
-        section.innerHTML = `
-            <h2>${this.name}</h2>
-            <p>${this.bio}</p>
-            <h3>Projects:</h3>
-            <ul>${this.projects.map(project => `<li>${project}</li>`).join('')}</ul>
-        `;
-
-        return section;
-    }
-}
-
-// Create Roommate instances
-const omed = new Roommate('Omed', 'Bio: [Your bio here]', ['Project 1 details', 'Project 2 details']);
-const peno = new Roommate('Peno', 'Bio: [Peno\'s bio here]', ['Project 1 details', 'Project 2 details']);
-const ammar = new Roommate('Ammar', 'Bio: [Ammar\'s bio here]', ['Project 1 details', 'Project 2 details']);
-const matthew = new Roommate('Matthew', 'Bio: [Matthew\'s bio here]', ['Project 1 details', 'Project 2 details']);
-const marvin = new Roommate('Marvin', 'Bio: [Marvin\'s bio here]', ['Project 1 details', 'Project 2 details']);
+];
 
 // Function to render navigation
-function renderNavigation(roommates) {
+function renderNavigation() {
     const navList = document.getElementById('nav-list');
     roommates.forEach(roommate => {
         const li = document.createElement('li');
-        li.innerHTML = `<a href="#${roommate.name.toLowerCase()}">${roommate.name}</a>`;
+        li.innerHTML = `<a href="#" data-name="${roommate.name.toLowerCase()}">${roommate.name}</a>`;
         navList.appendChild(li);
     });
-}
 
-// Function to render all roommates
-function renderRoommates(roommates) {
-    const mainContent = document.getElementById('main-content');
-    roommates.forEach(roommate => {
-        mainContent.appendChild(roommate.render());
+    // Add click event listener to the navigation links
+    navList.addEventListener('click', function(event) {
+        const name = event.target.getAttribute('data-name');
+        if (name) {
+            renderRoommate(name);
+        }
     });
 }
 
-// Array of roommates
-const roommates = [omed, peno, ammar, matthew, marvin];
+// Function to render a roommate
+function renderRoommate(roommateName) {
+    const mainContent = document.getElementById('main-content');
+    mainContent.innerHTML = ''; // Clear previous content
 
-// Render navigation and roommates
-renderNavigation(roommates);
-renderRoommates(roommates);
+    const roommate = roommates.find(r => r.name.toLowerCase() === roommateName);
+    if (roommate) {
+        const section = document.createElement('section');
+        section.classList.add('section');
+
+        section.innerHTML = `
+            <h2>${roommate.name}</h2>
+            <p>${roommate.bio}</p>
+            <h3>Projects:</h3>
+            <ul>${roommate.projects.map(project => `<li>${project}</li>`).join('')}</ul>
+        `;
+
+        mainContent.appendChild(section);
+    }
+}
+
+// Initial render
+renderNavigation();

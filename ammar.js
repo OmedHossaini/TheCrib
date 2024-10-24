@@ -1,0 +1,3 @@
+function renderAmmar() {
+    renderRoommate('ammar');
+}

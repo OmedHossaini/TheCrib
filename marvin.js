@@ -1,0 +1,3 @@
+function renderMarvin() {
+    renderRoommate('marvin');
+}

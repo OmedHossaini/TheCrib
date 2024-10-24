@@ -1,0 +1,3 @@
+function renderPeno() {
+    renderRoommate('peno');
+}
