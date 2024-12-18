@@ -1,7 +1,7 @@
 const roommates = [
     {
         name: 'Omed',
-        bio: 'Bio: Omed is an avid coder and loves hiking.',
+        bio: 'Bio: Omed is an avid coder.',
         projects: ['Web Development', 'Mobile Apps'],
     },
     {
