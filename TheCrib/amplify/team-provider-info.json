@@ -1,0 +1,24 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-thecrib-dev-4b9ca-authRole",
+      "UnauthRoleArn": "arn:aws:iam::851725222583:role/amplify-thecrib-dev-4b9ca-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::851725222583:role/amplify-thecrib-dev-4b9ca-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-thecrib-dev-4b9ca-deployment",
+      "UnauthRoleName": "amplify-thecrib-dev-4b9ca-unauthRole",
+      "StackName": "amplify-thecrib-dev-4b9ca",
+      "StackId": "arn:aws:cloudformation:us-east-1:851725222583:stack/amplify-thecrib-dev-4b9ca/0117b370-008b-11f0-b698-0affd8c3fd0f",
+      "AmplifyAppId": "d3enbad3aydkyf"
+    },
+    "categories": {
+      "auth": {
+        "thecrib742083d6": {}
+      },
+      "function": {
+        "receiptProcessor": {},
+        "receiptTriggerProcessor": {}
+      }
+    }
+  }
+}

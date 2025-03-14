@@ -1,0 +1,53 @@
+type User @model @auth(rules: [{ allow: owner }]) {
+  id: ID!
+  username: String!
+  email: String!
+  phoneNumber: String
+  expenses: [Expense] @hasMany
+  participantIn: [ExpenseParticipant] @hasMany
+}
+
+type Expense @model @auth(rules: [{ allow: owner }, { allow: private, operations: [read] }]) {
+  id: ID!
+  title: String!
+  amount: Float!
+  date: AWSDateTime!
+  splitType: SplitType!
+  paidBy: ID!
+  paidByUser: User @belongsTo(fields: ["paidBy"])
+  participants: [ExpenseParticipant] @hasMany
+  receipt: String
+  isRecurring: Boolean
+  recurringFrequency: String
+  notes: String
+}
+
+type ExpenseParticipant @model @auth(rules: [{ allow: owner }, { allow: private, operations: [read] }]) {
+  id: ID!
+  userId: ID!
+  user: User @belongsTo(fields: ["userId"])
+  expenseId: ID!
+  expense: Expense @belongsTo(fields: ["expenseId"])
+  amount: Float!
+  paid: Boolean!
+  dateSettled: AWSDateTime
+}
+
+enum SplitType {
+  EQUAL
+  CUSTOM
+  PERCENTAGE
+  SHARES
+}
+
+type Receipt @model @auth(rules: [{ allow: owner }, { allow: private, operations: [read] }]) {
+  id: ID!
+  expenseId: ID!
+  expense: Expense @belongsTo(fields: ["expenseId"])
+  imageUrl: String!
+  extractedText: String
+  extractedAmount: Float
+  createdAt: AWSDateTime!
+  createdBy: ID!
+  createdByUser: User @belongsTo(fields: ["createdBy"])
+}

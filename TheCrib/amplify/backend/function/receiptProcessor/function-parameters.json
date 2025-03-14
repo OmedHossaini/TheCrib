@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "api": {
+      "thecrib": [
+        "Query",
+        "Mutation"
+      ]
+    },
+    "storage": {
+      "receipts": [
+        "create",
+        "read",
+        "update"
+      ]
+    }
+  },
+  "lambdaLayers": []
+}

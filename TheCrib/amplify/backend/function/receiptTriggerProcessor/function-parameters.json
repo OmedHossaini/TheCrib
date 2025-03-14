@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "function": {
+      "receiptProcessor": [
+        "create",
+        "read"
+      ]
+    }
+  },
+  "lambdaLayers": []
+}
